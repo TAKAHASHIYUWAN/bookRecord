@@ -1,10 +1,8 @@
 import requests
 import json
 
-AUTHOR = 'ドストエフスキー'
 TITLE = 'カラマーゾフの兄弟'
-API_AUTHOR = 'inauthor:' + AUTHOR
-API_TITLE = 'intitle:' + TITLE
+
 
 GOOGLE_BOOKS_API_URL = 'https://www.googleapis.com/books/v1/volumes?q={}+{}'.format(API_AUTHOR,API_TITLE)
 
