@@ -32,14 +32,7 @@ class BookList(ListView):
 
     
 
-    """
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
 
-        context['book'] = context['book'].filter(user=self.request.user)
-
-        return context
-    """
 
 # Create your views here.
 class BookPrice(LoginRequiredMixin,DetailView):
