@@ -16,14 +16,6 @@ urlpatterns = [
     path('logout/',LogoutView.as_view(next_page = 'login'),name='logout'),
     path('register/',RegistorBookRecordApp.as_view(),name='register'),
 
-    # nameはurl に簡易的にアクセスできるようにするもの
-    # nameはhtmlでurlを使うときに
+    
 ]   
 
-urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
-
-"""
-urlpatterns = [
-    url(r'^media/(?P<path>.*)$','django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
-]
-"""
