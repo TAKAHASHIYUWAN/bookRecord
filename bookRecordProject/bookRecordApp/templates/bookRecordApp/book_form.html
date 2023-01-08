@@ -1,0 +1,28 @@
+<head>
+    {% load static %}
+    <link rel="stylesheet" href=" {% static 'css/form.css' %} ">
+    <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
+</head>
+<h2>本の追加</h2>
+<h3>{{ book.title }}</h3>
+<a href="{% url 'books' %}">戻る</a>
+
+<form action="" method="post">{% csrf_token %}
+    {{form.as_p}}
+    <!-- {{form}}は自動的にフォーム画面を作ってくれる。{{form.as_p}}にすると縦並びになる。全ての要素が<p>になるため -->
+{% if images %}
+<h2>イメージを選択してください。</h2>
+{% endif %}
+<div class="imageurl">
+{% for image in images %}
+<span class="checkimage">
+<img id="image" src="{{image}}" alt="" height="350px" width="300px">
+<input type="checkbox" value="{{image}}"  name="imageUrl" id="id_imageUrl">
+</span>
+{% endfor %}
+</div>
+<button type="submit" >送信</button>
+</form>
+<script src="{% static 'js/form.js' %}"></script>
+
+

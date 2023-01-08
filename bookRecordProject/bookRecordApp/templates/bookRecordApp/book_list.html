@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="book record">
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
+    <link rel="stylesheet" href=" {% static 'css/base.css' %} ">
+    <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
+    <title>BOOK RECORD</title>
+</head>
+<body>
+    <header id="header">
+    <!-- Header -->
+    <h1 class="site-title">
+        <a href="#">ブックレコード</a>
+    </h1>
+    {% if request.user.is_authenticated %}
+    <div class="account">
+    <p>{{request.user}}さんこんにちは</p>
+    <a href="{% url 'logout' %}">ログアウト</a>
+    </div>
+    {% else %}
+    <div class="account">
+    <p>ログインしていません。</p>
+    <a href="{% url 'login' %}">ログイン</a>
+    </div>
+    {% endif %}
+    
+    
+    </header>
+
+    <main>
+        
+        <div class="mainMargin">
+            <h1>ブックレコード一覧</h1>
+            <h3><a href="{% url 'create-book' %}">登録</a></h3>
+            <div class="mainBox">
+                <div class="result" id="result">
+                    {% for book in books %}
+                    <section>
+                        <h3 style="margin:10px 10px ;">{{book.id}} {{book.title}}</h3>
+                        <div class="tablecell">
+                            <div class="cover">
+                                <img src="{{book.imageUrl}}" alt="" srcset="" height="200" width="150">
+                            </div>
+                            <div class="item">
+                                    {% if book.buy %} 
+                                    <span id="buy" style="font-weight: bold;">
+                                       購入済
+                                    </span>
+                                    {% else %}
+                                    <span id="buy" style="font-weight: bold;">
+                                       未購入
+                                    </span>
+                                    {% endif %}
+                                    {% if book.read %} 
+                                    <span id="read" style="font-weight: bold;">
+                                        既読
+                                    </span>
+                                    {% else %}
+                                    <span id="read" style="font-weight: bold;" >
+                                        未読
+                                    </span>
+                                    {% endif %}
+                                
+                                <dl>
+                                    <dt>著者名</dt>
+                                    <dd>{{book.auther}}</dd>
+                                </dl>
+                                <dl>
+                                    <dt>記録日時</dt>
+                                    <dd>{{book.createDate}}</dd>
+                                </dl>
+                                <dl>
+                                    <dt>カテゴリー</dt>
+                                    <dd>{{book.category}}</dd>
+                                </dl>
+                            </div>
+                            <div class="buttons">
+                                <a href="{% url 'detail-book' book.id %}">詳細</a>
+                                <a href="{% url 'update-book' book.id %}">更新</a>
+                                <a href="{% url 'delete-book' book.id %}">削除</a>
+                                <a href="{% url 'price-book' book.id %}">中古価格</a>
+                            </div>
+                        </div>
+                    </section>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </main>
+    
+</body>
+</html>

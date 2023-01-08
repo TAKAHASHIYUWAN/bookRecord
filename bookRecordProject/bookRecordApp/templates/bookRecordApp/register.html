@@ -1,0 +1,9 @@
+<h1>新規登録</h1>
+
+<form action="" method="POST">
+    {% csrf_token %}{{form.as_p}}
+    <input type="summit" value="新規作成">
+</form>
+
+<p>すでにアカウントをお持ちですか？</p>
+<a href="{% url 'login' %}">ログイン</a>

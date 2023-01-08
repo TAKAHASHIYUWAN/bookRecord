@@ -1,0 +1,46 @@
+header {
+    display: flex;
+}
+header > h1 {
+    font-size: 40px;
+    padding: 10px 40px;
+}
+header > div.account {
+    padding: 10px;
+}
+h3 {
+    border-bottom: solid 1px black;
+}
+
+section {
+    border-bottom: solid 1px black;
+}
+dl {
+    display:flex;
+    flex-wrap: wrap;
+}
+
+dt {
+    background-color:rgb(208, 220, 235);
+    width: 100px;
+    border-radius: 3px;
+    margin: 15px;
+    text-align: right;
+}
+dd {
+    margin: 15px;
+    width: 200px;
+}
+
+.mainMargin {
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
+.tablecell {
+    display: flex;
+}
+
+#buy,#read {
+    margin: 10px;
+}

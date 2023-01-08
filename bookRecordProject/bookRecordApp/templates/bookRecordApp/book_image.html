@@ -1,0 +1,24 @@
+<h3 id="booktitle">{{books.booktitle}}</h3>
+    <div class="bookoff">
+        <h3>bookoff</h3>
+        {%for key,value in books.bookoff.items %}
+        
+            <h4>{{key}}  :  {{value}}</h4>
+        
+        {% endfor %}
+    </div>
+    <div class="valuebooks">
+        <h3>valuebooks</h3>
+
+        {% for key,value in books.valuebooks.items %}
+        
+            <h4>{{key}} : {{value}}</h4>
+        
+    </div>
+        {% endfor %}
+
+    
+
+
+
+    {% endblock content %}

@@ -1,0 +1,10 @@
+<h1>ログインページ</h1>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="ログイン">
+</form>
+
+<p>アカウントをもっていませんか？</p>
+<a href="{% url 'reginster' %}">新規登録</a>
